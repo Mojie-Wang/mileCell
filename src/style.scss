@@ -22,11 +22,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: #ffffff;
   color: var(--color-text);
   font-family: "PP Neue Montreal-Book", "Noto Sans SC", sans-serif;

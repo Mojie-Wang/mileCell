@@ -551,9 +551,9 @@ const cellsBackgroundStyle = {
 
   .banner__content {
     display: grid;
-    gap: 24px;
+    gap: 20px;
     min-height: auto;
-    padding: 48px 24px 56px;
+    padding: 40px 24px 48px;
   }
 
   .banner__progress-mark,
@@ -566,8 +566,25 @@ const cellsBackgroundStyle = {
     max-width: none;
   }
 
+  .banner__progress-mark {
+    gap: 8px;
+  }
+
+  .banner__progress-mark i {
+    width: 18px;
+    height: 18px;
+  }
+
+  .banner__progress-mark span {
+    width: 3px;
+    height: 72px;
+  }
+
   .banner__button {
-    margin-top: 28px;
+    gap: 18px;
+    height: 58px;
+    margin-top: 24px;
+    padding: 0 26px;
   }
 
   .about__overlay {
@@ -582,29 +599,36 @@ const cellsBackgroundStyle = {
   }
 
   .banner__content {
-    padding: 36px 16px 48px;
+    gap: 16px;
+    padding: 28px 16px 38px;
+  }
+
+  .banner__progress-mark {
+    display: none;
   }
 
   .banner__copy h1 {
-    font-size: clamp(2rem, 10vw, 2.4rem);
-    line-height: 1.2;
+    font-size: clamp(1.8rem, 9vw, 2.2rem);
+    line-height: 1.14;
   }
 
   .banner__copy p {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.95rem;
+    line-height: 1.65;
   }
 
   .banner__button {
     width: 100%;
-    max-width: 196px;
-    height: 58px;
-    padding: 0 26px;
-    font-size: 1.125rem;
+    max-width: 168px;
+    height: 50px;
+    padding: 0 20px;
+    gap: 12px;
+    font-size: 1rem;
   }
 
   .banner__pagination {
-    font-size: 1.1rem;
+    gap: 8px;
+    font-size: 0.95rem;
   }
 
   .products,
@@ -612,8 +636,17 @@ const cellsBackgroundStyle = {
   .advantages,
   .resources,
   .news {
-    padding-top: 72px;
-    padding-bottom: 80px;
+    padding-top: 56px;
+    padding-bottom: 64px;
+  }
+
+  .event {
+    padding: 56px 0;
+  }
+
+  .about__overlay {
+    gap: 16px;
+    padding: 28px 20px;
   }
 
   .products__grid,
