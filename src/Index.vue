@@ -8,6 +8,7 @@ import MetricCard from "@/home/MetricCard.vue";
 import ResourceCard from "@/home/ResourceCard.vue";
 import NewsCard from "@/home/NewsCard.vue";
 import { homePage } from "@content/indexPage";
+import { assetUrl } from "@src/utils/asset";
 
 const page = homePage;
 </script>
@@ -16,7 +17,7 @@ const page = homePage;
   <div class="page-shell">
     <section id="top" class="hero">
       <SiteHeader
-        logo-src="/home/logo.png"
+        :logo-src="assetUrl('home/logo.png')"
         :nav-items="page.navItems"
         :search-placeholder="page.searchPlaceholder"
       />
@@ -216,7 +217,7 @@ const page = homePage;
   background:
     linear-gradient(90deg, rgba(11, 21, 34, 0.72), rgba(11, 21, 34, 0.18) 58%),
     linear-gradient(180deg, rgba(26, 58, 92, 0.44), rgba(26, 58, 92, 0.18)),
-    url("/home/hero-lab.png") center / cover no-repeat;
+    url("../public/home/hero-lab.png") center / cover no-repeat;
 
   &__content {
     position: relative;
@@ -361,7 +362,7 @@ const page = homePage;
   padding: 92px 0 100px;
   background:
     linear-gradient(180deg, rgba(26, 58, 92, 0.96), rgba(26, 58, 92, 0.96)),
-    url("/home/cells-bg.png") center / cover no-repeat;
+    url("../public/home/cells-bg.png") center / cover no-repeat;
 
   &__header {
     margin-bottom: 42px;
@@ -415,7 +416,7 @@ const page = homePage;
   color: #ffffff;
   background:
     linear-gradient(90deg, rgba(11, 27, 47, 0.84), rgba(11, 27, 47, 0.42)),
-    url("/home/cells-bg.png") center / cover no-repeat;
+    url("../public/home/cells-bg.png") center / cover no-repeat;
 
   &__panel {
     display: grid;

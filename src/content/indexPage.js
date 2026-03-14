@@ -1,3 +1,5 @@
+import { assetUrl } from "@src/utils/asset";
+
 export const homePage = {
   navItems: [
     { label: "PRODUCT", href: "#products" },
@@ -22,22 +24,22 @@ export const homePage = {
     items: [
       {
         name: "CD14 MicroBeads,Human",
-        image: "/home/product-cd14.png",
+        image: assetUrl("home/product-cd14.png"),
         buttonVariant: "solid",
       },
       {
         name: "Hepatocytes Maintenance",
-        image: "/home/product-hepatocytes.png",
+        image: assetUrl("home/product-hepatocytes.png"),
         buttonVariant: "surface",
       },
       {
         name: "Cell Freezing Media - CGT",
-        image: "/home/product-freezing.png",
+        image: assetUrl("home/product-freezing.png"),
         buttonVariant: "surface",
       },
       {
         name: "Subcellular Fractions",
-        image: "/home/product-fractions.png",
+        image: assetUrl("home/product-fractions.png"),
         buttonVariant: "surface",
       },
     ],
@@ -47,7 +49,7 @@ export const homePage = {
     description:
       "Explore our integrated approach to delivering high-quality primary cells and reliable research solutions.",
     ctaLabel: "Explore MileCell",
-    image: "/home/about-lab.png",
+    image: assetUrl("home/about-lab.png"),
     overlayTitle: "Elevating Cell Science Research",
     overlayDescription:
       "At MileCell Bio, we are dedicated to advancing life science research through innovative, dependable, and biologically relevant tools.",
@@ -55,19 +57,19 @@ export const homePage = {
     features: [
       {
         title: "Premium Primary Cells",
-        image: "/home/icon-primary-cells.png",
+        image: assetUrl("home/icon-primary-cells.png"),
       },
       {
         title: "Advanced Culture Media",
-        image: "/home/icon-culture-media.png",
+        image: assetUrl("home/icon-culture-media.png"),
       },
       {
         title: "Subcellular Fractions",
-        image: "/home/icon-subcellular.png",
+        image: assetUrl("home/icon-subcellular.png"),
       },
       {
         title: "Immune Cell Isolation Magnetic Bead",
-        image: "/home/icon-immune-isolation.png",
+        image: assetUrl("home/icon-immune-isolation.png"),
       },
     ],
   },
@@ -89,14 +91,14 @@ export const homePage = {
       "Browse our scientific publications, webinars, posters, and more — resources created to support you throughout your research journey.",
     ctaLabel: "Browse all educational content",
     items: [
-      { title: "COA", image: "/home/resource-coa.png" },
-      { title: "Product Brochure", image: "/home/resource-brochure.png" },
+      { title: "COA", image: assetUrl("home/resource-coa.png") },
+      { title: "Product Brochure", image: assetUrl("home/resource-brochure.png") },
       {
         title: "Newsletter Registration",
-        image: "/home/resource-newsletter.png",
+        image: assetUrl("home/resource-newsletter.png"),
       },
-      { title: "Blog / Publication", image: "/home/resource-blog.png" },
-      { title: "Application Note", image: "/home/resource-note.png" },
+      { title: "Blog / Publication", image: assetUrl("home/resource-blog.png") },
+      { title: "Application Note", image: assetUrl("home/resource-note.png") },
     ],
   },
   event: {
@@ -116,19 +118,19 @@ export const homePage = {
     ctaLabel: "View all news",
     items: [
       {
-        image: "/home/news-korea.png",
+        image: assetUrl("home/news-korea.png"),
         date: "Oct 28, 2025",
         title:
           "Milecell Bio Shines at 2025 BIOPLUS Korea in Seoul: A Milestone in Global Biomedical Innovation",
       },
       {
-        image: "/home/news-retreat.png",
+        image: assetUrl("home/news-retreat.png"),
         date: "Oct 28, 2025",
         title:
           "MileCell Bio's Annual Retreat: A Green Gateway for Global Growth",
       },
       {
-        image: "/home/news-boston.png",
+        image: assetUrl("home/news-boston.png"),
         date: "Oct 28, 2025",
         title: "Milecell Bio Shines at BIO International Convention 2025 in Boston",
       },
