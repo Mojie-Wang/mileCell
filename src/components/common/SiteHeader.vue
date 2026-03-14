@@ -1,4 +1,6 @@
 <script setup>
+import { assetUrl } from "@src/utils/asset";
+
 defineProps({
   logoSrc: {
     type: String,
@@ -13,6 +15,9 @@ defineProps({
     required: true,
   },
 });
+
+const accountIconSrc = assetUrl("icons/header-account.png");
+const cartIconSrc = assetUrl("icons/header-cart.png");
 </script>
 
 <template>
@@ -46,18 +51,12 @@ defineProps({
 
         <div class="site-header__utility">
           <a href="#news" class="site-header__utility-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="3.5" />
-              <path d="M5 19c1.7-3 4.3-4.5 7-4.5s5.3 1.5 7 4.5" />
-            </svg>
+            <img :src="accountIconSrc" alt="" aria-hidden="true" />
             <span>Login/Reg</span>
           </a>
           <span class="site-header__divider" aria-hidden="true"></span>
           <a href="#contact" class="site-header__utility-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 9h10l-1 10H8L7 9Z" />
-              <path d="M9 9V7.5a3 3 0 0 1 6 0V9" />
-            </svg>
+            <img :src="cartIconSrc" alt="" aria-hidden="true" />
             <span>0</span>
           </a>
         </div>
@@ -100,14 +99,17 @@ defineProps({
 
   &__search {
     display: flex;
+    flex: 0 1 584px;
     align-items: stretch;
-    width: min(584px, 100%);
+    width: 584px;
+    max-width: 100%;
     min-height: 48px;
     margin-left: auto;
     overflow: hidden;
     border: 1px solid #c2c2c2;
     border-radius: 4px;
-    background: #f2f2f2;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(194, 194, 194, 0.18);
 
     input {
       flex: 1 1 auto;
@@ -179,14 +181,9 @@ defineProps({
     font-size: 1.125rem;
     line-height: 26px;
 
-    svg {
+    img {
       width: 30px;
       height: 30px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
       flex: 0 0 auto;
     }
   }

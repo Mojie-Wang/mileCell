@@ -11,8 +11,8 @@ import { homePage } from "@content/indexPage";
 import { assetUrl } from "@src/utils/asset";
 
 const page = homePage;
-const heroStyle = {
-  "--hero-background-image": `url("${assetUrl("home/hero-lab.png")}")`,
+const bannerStyle = {
+  "--banner-background-image": `url("${assetUrl("home/hero-lab.png")}")`,
 };
 const cellsBackgroundStyle = {
   "--section-background-image": `url("${assetUrl("home/cells-bg.png")}")`,
@@ -27,17 +27,17 @@ const cellsBackgroundStyle = {
       :search-placeholder="page.searchPlaceholder"
     />
 
-    <section id="top" class="hero" :style="heroStyle">
-      <div class="hero__content">
-        <div class="hero__marker" aria-hidden="true">
+    <section id="top" class="banner" :style="bannerStyle">
+      <div class="banner__content">
+        <div class="banner__progress-mark" aria-hidden="true">
           <i></i>
           <span></span>
         </div>
 
-        <div class="hero__copy">
+        <div class="banner__copy">
           <h1>{{ page.hero.title }}</h1>
           <p>{{ page.hero.description }}</p>
-          <a class="hero__cta" href="#products">
+          <a class="banner__button" href="#products">
             <span>{{ page.hero.ctaLabel }}</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h12" />
@@ -46,7 +46,7 @@ const cellsBackgroundStyle = {
           </a>
         </div>
 
-        <div class="hero__indicator" aria-label="slide indicator">
+        <div class="banner__pagination" aria-label="slide indicator">
           <span>{{ page.hero.currentSlide }}</span>
           <i></i>
           <span class="is-muted">{{ page.hero.totalSlides }}</span>
@@ -218,13 +218,13 @@ const cellsBackgroundStyle = {
 </template>
 
 <style scoped lang="scss">
-.hero {
+.banner {
   position: relative;
   min-height: 596px;
   color: #ffffff;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    var(--hero-background-image) center / cover no-repeat;
+    var(--banner-background-image) center / cover no-repeat;
 
   &__content {
     position: relative;
@@ -240,7 +240,7 @@ const cellsBackgroundStyle = {
     max-width: 704px;
   }
 
-  &__marker {
+  &__progress-mark {
     position: absolute;
     left: 67px;
     top: 241px;
@@ -278,7 +278,7 @@ const cellsBackgroundStyle = {
     color: #ffffff;
   }
 
-  &__cta {
+  &__button {
     display: inline-flex;
     align-items: center;
     gap: 26px;
@@ -305,7 +305,7 @@ const cellsBackgroundStyle = {
     }
   }
 
-  &__indicator {
+  &__pagination {
     position: absolute;
     left: 71px;
     bottom: 74px;
@@ -532,41 +532,41 @@ const cellsBackgroundStyle = {
     grid-template-columns: 1fr;
   }
 
-  .hero__copy {
+  .banner__copy {
     left: 180px;
     right: 32px;
     max-width: 640px;
   }
 
-  .hero__marker,
-  .hero__indicator {
+  .banner__progress-mark,
+  .banner__pagination {
     left: 32px;
   }
 }
 
 @media (max-width: 900px) {
-  .hero {
+  .banner {
     min-height: auto;
   }
 
-  .hero__content {
+  .banner__content {
     display: grid;
     gap: 24px;
     min-height: auto;
     padding: 48px 24px 56px;
   }
 
-  .hero__marker,
-  .hero__copy,
-  .hero__indicator {
+  .banner__progress-mark,
+  .banner__copy,
+  .banner__pagination {
     position: static;
   }
 
-  .hero__copy {
+  .banner__copy {
     max-width: none;
   }
 
-  .hero__cta {
+  .banner__button {
     margin-top: 28px;
   }
 
@@ -577,25 +577,25 @@ const cellsBackgroundStyle = {
 }
 
 @media (max-width: 640px) {
-  .hero {
+  .banner {
     min-height: auto;
   }
 
-  .hero__content {
+  .banner__content {
     padding: 36px 16px 48px;
   }
 
-  .hero__copy h1 {
+  .banner__copy h1 {
     font-size: clamp(2rem, 10vw, 2.4rem);
     line-height: 1.2;
   }
 
-  .hero__copy p {
+  .banner__copy p {
     font-size: 1rem;
     line-height: 1.75;
   }
 
-  .hero__cta {
+  .banner__button {
     width: 100%;
     max-width: 196px;
     height: 58px;
@@ -603,7 +603,7 @@ const cellsBackgroundStyle = {
     font-size: 1.125rem;
   }
 
-  .hero__indicator {
+  .banner__pagination {
     font-size: 1.1rem;
   }
 

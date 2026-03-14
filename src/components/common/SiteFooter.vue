@@ -1,4 +1,6 @@
 <script setup>
+import { assetUrl } from "@src/utils/asset";
+
 defineProps({
   columns: {
     type: Array,
@@ -17,6 +19,11 @@ defineProps({
     required: true,
   },
 });
+
+const phoneIconSrc = assetUrl("icons/contact-phone.png");
+const emailIconSrc = assetUrl("icons/contact-email.png");
+const addressIconSrc = assetUrl("icons/contact-address.png");
+const arrowIconSrc = assetUrl("icons/arrow-right.png");
 </script>
 
 <template>
@@ -37,11 +44,7 @@ defineProps({
               <h3>{{ region.name }}</h3>
 
               <div class="site-footer__fact">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M7.4 4.5h2.4l1.2 3.4-1.6 1.4a14.2 14.2 0 0 0 5.3 5.3l1.4-1.6 3.4 1.2v2.4c0 .7-.5 1.3-1.2 1.4-.5.1-1 .1-1.5.1A12.8 12.8 0 0 1 4.5 7.2c0-.5 0-1 .1-1.5.1-.7.7-1.2 1.4-1.2Z"
-                  />
-                </svg>
+                <img :src="phoneIconSrc" alt="" aria-hidden="true" />
                 <div>
                   <span>PHONE</span>
                   <a href="#contact">{{ region.phone }}</a>
@@ -49,10 +52,7 @@ defineProps({
               </div>
 
               <div class="site-footer__fact">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3.5" y="6.5" width="17" height="11" rx="1.5" />
-                  <path d="m4.5 8 7.5 5 7.5-5" />
-                </svg>
+                <img :src="emailIconSrc" alt="" aria-hidden="true" />
                 <div>
                   <span>EMAIL</span>
                   <a href="#contact">{{ region.email }}</a>
@@ -60,10 +60,7 @@ defineProps({
               </div>
 
               <div class="site-footer__fact">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 20c3.2-3.7 4.8-6.4 4.8-8.3A4.8 4.8 0 1 0 7.2 11.7C7.2 13.6 8.8 16.3 12 20Z" />
-                  <circle cx="12" cy="11.3" r="1.8" />
-                </svg>
+                <img :src="addressIconSrc" alt="" aria-hidden="true" />
                 <div>
                   <span>ADD.</span>
                   <p>{{ region.address }}</p>
@@ -92,10 +89,7 @@ defineProps({
           <div class="site-footer__newsletter-actions">
             <a href="#top" class="site-footer__contact-link">
               <span>Contact US</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h12" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
+              <img :src="arrowIconSrc" alt="" aria-hidden="true" />
             </a>
             <a class="site-footer__social" href="#top" aria-label="LinkedIn">in</a>
           </div>
@@ -182,16 +176,10 @@ defineProps({
     align-items: start;
     margin-bottom: 24px;
 
-    svg {
+    img {
       width: 30px;
       height: 30px;
       margin-top: 2px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      color: #ffffff;
       flex: 0 0 auto;
     }
 
@@ -292,14 +280,9 @@ defineProps({
     font-size: 1.25rem;
     line-height: 1;
 
-    svg {
+    img {
       width: 18px;
       height: 18px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
   }
 
