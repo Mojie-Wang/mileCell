@@ -23,7 +23,7 @@ const props = defineProps({
 
 const tagName = computed(() => (props.href ? "a" : "button"));
 const arrowIconStyle = computed(() => ({
-  "--arrow-button-icon": `url("${assetUrl("icons/arrow-right.png")}")`,
+  "--arrow-button-icon": `url("${assetUrl("icons/button-arrow.png")}")`,
 }));
 </script>
 
