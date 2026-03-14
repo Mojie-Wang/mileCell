@@ -119,12 +119,20 @@ const arrowIconSrc = assetUrl("icons/arrow-right.png");
   }
 
   &__column {
+    padding: 18px 18px 8px;
+    border-radius: 18px;
+    transition:
+      transform 0.24s ease,
+      background-color 0.24s ease,
+      box-shadow 0.24s ease;
+
     h2 {
       margin-bottom: 26px;
       font-family: "Apfel Grotezk-Mittel", sans-serif;
       font-size: 1.25rem;
       line-height: 1;
       color: #ffffff;
+      transition: color 0.24s ease;
     }
 
     a {
@@ -134,6 +142,26 @@ const arrowIconSrc = assetUrl("icons/arrow-right.png");
       font-family: "PP Neue Montreal-Book", sans-serif;
       font-size: 1rem;
       line-height: 1.2;
+      transition:
+        color 0.24s ease,
+        transform 0.24s ease;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__column:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+      h2 {
+        color: #d7e8f2;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.88);
+        transform: translateX(4px);
+      }
     }
   }
 
