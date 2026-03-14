@@ -88,10 +88,13 @@ const cartIconSrc = assetUrl("icons/header-cart.png");
   }
 
   &__brand {
-    flex: 0 0 auto;
+    display: block;
+    flex: 0 0 251px;
+    width: 251px;
+    max-width: 100%;
 
     img {
-      width: min(251px, 100%);
+      width: 100%;
       height: auto;
       mix-blend-mode: darken;
     }
@@ -223,7 +226,12 @@ const cartIconSrc = assetUrl("icons/header-cart.png");
     }
 
     &__brand img {
-      width: min(210px, 100%);
+      width: 100%;
+    }
+
+    &__brand {
+      flex-basis: 210px;
+      width: 210px;
     }
 
     &__nav {
