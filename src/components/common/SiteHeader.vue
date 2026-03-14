@@ -17,76 +17,97 @@ defineProps({
 
 <template>
   <header class="site-header">
-    <div class="site-header__top section-shell">
-      <a class="site-header__brand" href="#top" aria-label="MileCell home">
-        <img :src="logoSrc" alt="MileCell" />
-      </a>
-
-      <form class="site-header__search" @submit.prevent>
-        <label class="sr-only" for="site-search">Search</label>
-        <input
-          id="site-search"
-          type="search"
-          :placeholder="searchPlaceholder"
-          autocomplete="off"
-        />
-        <button type="submit">SEARCH</button>
-      </form>
-
-      <div class="site-header__utility">
-        <a href="#news">
-          <span class="site-header__icon" aria-hidden="true">⌕</span>
-          <span>Login/Reg</span>
+    <div class="site-header__topbar">
+      <div class="site-header__topbar-inner">
+        <a class="site-header__brand" href="#top" aria-label="MileCell home">
+          <img :src="logoSrc" alt="MileCell" />
         </a>
-        <span class="site-header__divider" aria-hidden="true"></span>
-        <a href="#contact">
-          <span class="site-header__icon" aria-hidden="true">🛒</span>
-          <span>0</span>
-        </a>
+
+        <form class="site-header__search" @submit.prevent>
+          <label class="sr-only" for="site-search">Search</label>
+          <input
+            id="site-search"
+            type="search"
+            :placeholder="searchPlaceholder"
+            autocomplete="off"
+          />
+          <button type="submit">SEARCH</button>
+        </form>
       </div>
     </div>
 
-    <nav class="site-header__nav section-shell" aria-label="Primary">
-      <a v-for="item in navItems" :key="item.label" :href="item.href">
-        {{ item.label }}
-      </a>
-    </nav>
+    <div class="site-header__navband">
+      <div class="site-header__navband-inner">
+        <nav class="site-header__nav" aria-label="Primary">
+          <a v-for="item in navItems" :key="item.label" :href="item.href">
+            {{ item.label }}
+          </a>
+        </nav>
+
+        <div class="site-header__utility">
+          <a href="#news" class="site-header__utility-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5" />
+              <path d="M5 19c1.7-3 4.3-4.5 7-4.5s5.3 1.5 7 4.5" />
+            </svg>
+            <span>Login/Reg</span>
+          </a>
+          <span class="site-header__divider" aria-hidden="true"></span>
+          <a href="#contact" class="site-header__utility-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 9h10l-1 10H8L7 9Z" />
+              <path d="M9 9V7.5a3 3 0 0 1 6 0V9" />
+            </svg>
+            <span>0</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <style scoped lang="scss">
 .site-header {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 5;
-  padding-top: 18px;
-  color: #ffffff;
+  position: relative;
+  z-index: 10;
 
-  &__top {
+  &__topbar {
+    background: #f2f2f2;
+  }
+
+  &__topbar-inner,
+  &__navband-inner {
+    width: min(calc(100% - 48px), 1330px);
+    margin: 0 auto;
+  }
+
+  &__topbar-inner {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
+    min-height: 83px;
   }
 
   &__brand {
     flex: 0 0 auto;
 
     img {
-      width: clamp(170px, 17vw, 232px);
+      width: min(251px, 100%);
       height: auto;
+      mix-blend-mode: darken;
     }
   }
 
   &__search {
-    flex: 1 1 auto;
     display: flex;
     align-items: stretch;
-    min-width: 0;
+    width: min(584px, 100%);
+    min-height: 48px;
     margin-left: auto;
-    border-radius: 4px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #c2c2c2;
+    border-radius: 4px;
+    background: #f2f2f2;
 
     input {
       flex: 1 1 auto;
@@ -94,111 +115,141 @@ defineProps({
       padding: 0 16px;
       border: 0;
       background: transparent;
-      color: #111111;
+      color: #000000;
+      font-family: "Roboto-Regular", "PP Neue Montreal-Book", sans-serif;
+      font-size: 1rem;
+      line-height: 26px;
 
       &::placeholder {
-        color: rgba(17, 17, 17, 0.45);
+        color: rgba(0, 0, 0, 0.3);
       }
     }
 
     button {
-      flex: 0 0 auto;
-      min-width: 90px;
-      padding: 0 18px;
-      background: var(--color-brand);
+      flex: 0 0 90px;
+      border-radius: 0 4px 4px 0;
+      background: #1a3a5c;
       color: #ffffff;
       font-family: "PP Neue Montreal-Medium", sans-serif;
-      letter-spacing: 0.06em;
+      font-size: 1rem;
+      line-height: 26px;
+      letter-spacing: 0;
+    }
+  }
+
+  &__navband {
+    background: #1a3a5c;
+    color: #ffffff;
+  }
+
+  &__navband-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 58px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    min-width: 0;
+
+    a {
+      font-family: "Apfel Grotezk-Mittel", sans-serif;
+      font-size: 1.125rem;
+      line-height: 1;
+      white-space: nowrap;
     }
   }
 
   &__utility {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     white-space: nowrap;
-    font-family: "Apfel Grotezk-Mittel", sans-serif;
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
   }
 
-  &__icon {
-    font-size: 1rem;
-    line-height: 1;
+  &__utility-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: "Apfel Grotezk-Mittel", sans-serif;
+    font-size: 1.125rem;
+    line-height: 26px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
   }
 
   &__divider {
     width: 1px;
-    height: 22px;
-    background: rgba(255, 255, 255, 0.45);
+    height: 23px;
+    background: rgba(255, 255, 255, 0.7);
   }
 
-  &__nav {
-    display: flex;
-    align-items: center;
-    gap: 34px;
-    margin-top: 22px;
-    font-family: "Apfel Grotezk-Mittel", sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.04em;
-
-    a {
-      position: relative;
-      padding-bottom: 8px;
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.7);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.24s ease;
-      }
-
-      &:hover::after {
-        transform: scaleX(1);
-      }
+  @media (max-width: 1100px) {
+    &__topbar-inner,
+    &__navband-inner {
+      width: min(calc(100% - 32px), 1330px);
     }
-  }
 
-  @media (max-width: 1024px) {
-    &__top {
+    &__topbar-inner {
       flex-wrap: wrap;
+      padding: 16px 0;
     }
 
     &__search {
-      order: 3;
       width: 100%;
+    }
+
+    &__navband-inner {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 12px 0;
     }
   }
 
-  @media (max-width: 640px) {
-    padding-top: 14px;
+  @media (max-width: 720px) {
+    &__topbar-inner,
+    &__navband-inner {
+      width: min(calc(100% - 24px), 1330px);
+    }
 
-    &__top {
-      gap: 16px;
+    &__brand img {
+      width: min(210px, 100%);
+    }
+
+    &__nav {
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      font-size: 0.95rem;
     }
 
     &__utility {
       width: 100%;
       justify-content: flex-end;
-      font-size: 0.9rem;
+      gap: 12px;
+      font-size: 0.95rem;
     }
 
-    &__nav {
-      gap: 16px;
-      margin-top: 18px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      font-size: 0.8rem;
+    &__utility-link {
+      font-size: 0.95rem;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }

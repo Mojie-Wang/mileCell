@@ -5,7 +5,7 @@ export const homePage = {
     { label: "PRODUCT", href: "#products" },
     { label: "RESOURCE HUB", href: "#resources" },
     { label: "SUPPORT", href: "#support" },
-    { label: "ABOUT", href: "#about" },
+    { label: "About", href: "#about" },
   ],
   searchPlaceholder: "Enter protein/keyword/catalog#/etc...",
   hero: {
@@ -169,7 +169,7 @@ export const homePage = {
         ],
       },
       {
-        title: "ABOUT",
+        title: "ABOUTUS",
         links: [
           "About MileCell",
           "Careers",
@@ -197,13 +197,11 @@ export const homePage = {
     ],
     newsletter: {
       title: "Sign up for our newsletter!",
-      description:
-        "We'll send you periodic updates about new products and services.",
+      description: "We'll send you periodic updates about new products and services",
       placeholder: "Email Address",
       legal:
-        "MileCell will use the information you have provided above to service your request or inquiry. In addition, our sales and marketing team would like to use your contact information to connect you with specific MileCell products and services that we think might be of interest to you.",
+        "MileCell will use the information you have provided above to service your request/inquiry. In addition, our sales and marketing team would like to use your contact information to connect you with specific MileCell products and services that we think might be of interest to you. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, view our Privacy Policy. California Notice at Collection",
     },
-    legal:
-      "Privacy and Cookie Policy | Terms & Conditions | MILECELL BIOTECHNOLOGY INC. By: Kinglink",
+    legal: "MILECELL BIOTECHNOLOGY INC. By: Kinglink Privacy Policy",
   },
 };

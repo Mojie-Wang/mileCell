@@ -11,30 +11,39 @@ import { homePage } from "@content/indexPage";
 import { assetUrl } from "@src/utils/asset";
 
 const page = homePage;
+const heroStyle = {
+  "--hero-background-image": `url("${assetUrl("home/hero-lab.png")}")`,
+};
+const cellsBackgroundStyle = {
+  "--section-background-image": `url("${assetUrl("home/cells-bg.png")}")`,
+};
 </script>
 
 <template>
   <div class="page-shell">
-    <section id="top" class="hero">
-      <SiteHeader
-        :logo-src="assetUrl('home/logo.png')"
-        :nav-items="page.navItems"
-        :search-placeholder="page.searchPlaceholder"
-      />
+    <SiteHeader
+      :logo-src="assetUrl('home/logo.png')"
+      :nav-items="page.navItems"
+      :search-placeholder="page.searchPlaceholder"
+    />
 
-      <div class="section-shell hero__content">
+    <section id="top" class="hero" :style="heroStyle">
+      <div class="hero__content">
+        <div class="hero__marker" aria-hidden="true">
+          <i></i>
+          <span></span>
+        </div>
+
         <div class="hero__copy">
-          <div class="hero__marker" aria-hidden="true">
-            <span></span>
-            <i></i>
-          </div>
           <h1>{{ page.hero.title }}</h1>
           <p>{{ page.hero.description }}</p>
-          <BaseArrowButton
-            :label="page.hero.ctaLabel"
-            variant="solid"
-            href="#products"
-          />
+          <a class="hero__cta" href="#products">
+            <span>{{ page.hero.ctaLabel }}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
         </div>
 
         <div class="hero__indicator" aria-label="slide indicator">
@@ -108,7 +117,7 @@ const page = homePage;
       </div>
     </section>
 
-    <section class="advantages">
+    <section class="advantages" :style="cellsBackgroundStyle">
       <div class="section-shell">
         <div class="advantages__header">
           <p class="section-kicker section-kicker--light">Advantages</p>
@@ -153,7 +162,7 @@ const page = homePage;
       </div>
     </section>
 
-    <section id="support" class="event">
+    <section id="support" class="event" :style="cellsBackgroundStyle">
       <div class="section-shell event__panel">
         <div class="event__copy">
           <p class="section-kicker section-kicker--light">{{ page.event.kicker }}</p>
@@ -211,73 +220,103 @@ const page = homePage;
 <style scoped lang="scss">
 .hero {
   position: relative;
-  min-height: 760px;
-  padding: 202px 0 86px;
+  min-height: 596px;
   color: #ffffff;
   background:
-    linear-gradient(90deg, rgba(11, 21, 34, 0.72), rgba(11, 21, 34, 0.18) 58%),
-    linear-gradient(180deg, rgba(26, 58, 92, 0.44), rgba(26, 58, 92, 0.18)),
-    url("../public/home/hero-lab.png") center / cover no-repeat;
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    var(--hero-background-image) center / cover no-repeat;
 
   &__content {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 32px;
+    width: min(100%, 1920px);
+    min-height: 596px;
+    margin: 0 auto;
   }
 
   &__copy {
-    display: grid;
-    gap: 22px;
-    max-width: 760px;
+    position: absolute;
+    top: 126px;
+    left: 318px;
+    max-width: 704px;
   }
 
   &__marker {
-    display: inline-grid;
-    justify-items: start;
-    gap: 10px;
+    position: absolute;
+    left: 67px;
+    top: 241px;
+    display: grid;
+    justify-items: center;
+    gap: 11px;
+
+    i {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+    }
 
     span {
       width: 4px;
-      height: 96px;
-      background: rgba(255, 255, 255, 0.76);
-    }
-
-    i {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.82);
+      height: 94px;
+      background: rgba(255, 255, 255, 0.95);
     }
   }
 
   h1 {
-    max-width: 12ch;
+    margin-bottom: 20px;
     font-family: "Noto Sans SC", sans-serif;
-    font-size: clamp(2.6rem, 4.2vw, 4.75rem);
-    line-height: 1.08;
+    font-size: clamp(2.5rem, 3vw, 2.875rem);
+    line-height: 1.28;
     font-weight: 700;
-    text-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
   }
 
   p {
-    max-width: 660px;
-    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.92);
+    max-width: 704px;
+    font-family: "Noto Sans SC", sans-serif;
+    font-size: 1.1875rem;
+    line-height: 32px;
+    color: #ffffff;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 26px;
+    width: 196px;
+    height: 67px;
+    margin-top: 42px;
+    padding: 0 40px;
+    border-radius: 2px;
+    background: #283886;
+    color: #ffffff;
+    font-family: "PP Neue Montreal-Medium", sans-serif;
+    font-size: 1.375rem;
+    line-height: 1;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
   }
 
   &__indicator {
-    display: inline-flex;
+    position: absolute;
+    left: 71px;
+    bottom: 74px;
+    display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 8px;
+    gap: 11px;
     font-family: "PP Neue Montreal-Book", sans-serif;
-    font-size: 1.45rem;
+    font-size: 1.625rem;
 
     i {
-      width: 22px;
+      width: 18px;
       height: 1px;
       background: rgba(255, 255, 255, 0.72);
     }
@@ -362,7 +401,7 @@ const page = homePage;
   padding: 92px 0 100px;
   background:
     linear-gradient(180deg, rgba(26, 58, 92, 0.96), rgba(26, 58, 92, 0.96)),
-    url("../public/home/cells-bg.png") center / cover no-repeat;
+    var(--section-background-image) center / cover no-repeat;
 
   &__header {
     margin-bottom: 42px;
@@ -416,7 +455,7 @@ const page = homePage;
   color: #ffffff;
   background:
     linear-gradient(90deg, rgba(11, 27, 47, 0.84), rgba(11, 27, 47, 0.42)),
-    url("../public/home/cells-bg.png") center / cover no-repeat;
+    var(--section-background-image) center / cover no-repeat;
 
   &__panel {
     display: grid;
@@ -492,41 +531,80 @@ const page = homePage;
   .event__panel {
     grid-template-columns: 1fr;
   }
+
+  .hero__copy {
+    left: 180px;
+    right: 32px;
+    max-width: 640px;
+  }
+
+  .hero__marker,
+  .hero__indicator {
+    left: 32px;
+  }
 }
 
 @media (max-width: 900px) {
   .hero {
-    min-height: 700px;
-    padding-top: 230px;
-
-    &__content {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    min-height: auto;
   }
 
-  .about {
-    &__overlay {
-      justify-items: start;
-      text-align: left;
-    }
+  .hero__content {
+    display: grid;
+    gap: 24px;
+    min-height: auto;
+    padding: 48px 24px 56px;
+  }
+
+  .hero__marker,
+  .hero__copy,
+  .hero__indicator {
+    position: static;
+  }
+
+  .hero__copy {
+    max-width: none;
+  }
+
+  .hero__cta {
+    margin-top: 28px;
+  }
+
+  .about__overlay {
+    justify-items: start;
+    text-align: left;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
-    min-height: 640px;
-    padding: 220px 0 56px;
+    min-height: auto;
+  }
 
-    &__marker {
-      span {
-        height: 70px;
-      }
-    }
+  .hero__content {
+    padding: 36px 16px 48px;
+  }
 
-    &__indicator {
-      font-size: 1.1rem;
-    }
+  .hero__copy h1 {
+    font-size: clamp(2rem, 10vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .hero__copy p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .hero__cta {
+    width: 100%;
+    max-width: 196px;
+    height: 58px;
+    padding: 0 26px;
+    font-size: 1.125rem;
+  }
+
+  .hero__indicator {
+    font-size: 1.1rem;
   }
 
   .products,
