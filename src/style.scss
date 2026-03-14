@@ -1,0 +1,206 @@
+@font-face {
+  font-family: "PP Neue Montreal-Medium";
+  src: url("/fonts/pixso/PP Neue Montreal Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal-Bold";
+  src: url("/fonts/pixso/PP Neue Montreal Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal-Book";
+  src: url("/fonts/pixso/PP Neue Montreal Book.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Apfel Grotezk-Mittel";
+  src: url("/fonts/pixso/ApfelGrotezk-Mittel.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Apfel Grotezk-Regular";
+  src: url("/fonts/pixso/ApfelGrotezk-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("/fonts/pixso/NotoSansSC-VariableFont_wght_2.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+:root {
+  --color-brand: #1a3a5c;
+  --color-brand-deep: #132948;
+  --color-accent: #abc8c7;
+  --color-accent-soft: #edf6f5;
+  --color-surface: #ffffff;
+  --color-line: rgba(26, 58, 92, 0.14);
+  --color-text: #151515;
+  --color-muted: #66758a;
+  --shadow-soft: 0 24px 60px rgba(15, 34, 58, 0.08);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+  color: var(--color-text);
+  font-family: "PP Neue Montreal-Book", "Noto Sans SC", sans-serif;
+}
+
+body,
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.page-shell {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.section-shell {
+  width: min(calc(100% - 48px), 1340px);
+  margin: 0 auto;
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 42px;
+}
+
+.section-kicker {
+  margin-bottom: 10px;
+  font-family: "Apfel Grotezk-Mittel", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+
+  &--light {
+    color: #ffffff;
+    opacity: 0.72;
+  }
+}
+
+.section-title {
+  max-width: 13ch;
+  font-family: "PP Neue Montreal-Medium", sans-serif;
+  font-size: clamp(2.4rem, 3.2vw, 4rem);
+  line-height: 1.05;
+  color: var(--color-brand);
+
+  &--light {
+    color: #ffffff;
+  }
+}
+
+.section-description {
+  max-width: 58rem;
+  margin-top: 14px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+
+  &--light {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+}
+
+.surface-card {
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .section-top {
+    flex-direction: column;
+    margin-bottom: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-shell {
+    width: min(calc(100% - 28px), 1340px);
+  }
+
+  .section-title {
+    max-width: none;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+}
